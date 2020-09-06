@@ -11,7 +11,7 @@
 	<groupId>com.bit.certificates</groupId>
 	<artifactId>Bit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CertificatesBit</name>
+	<name>CertificatesBit_Backend</name>
 	<description>CertificatesBit</description>
 
 	<properties>
