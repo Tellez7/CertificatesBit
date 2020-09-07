@@ -19,19 +19,23 @@ public class UserController {
 	private UserRepository userRepositoryDAO;
 
 	@RequestMapping("/createUser")
-	public User save(@RequestParam long id, @RequestParam String user, @RequestParam String password) {
+	public User save(@RequestParam long id, @RequestParam String user, @RequestParam String password,
+			@RequestParam boolean admin) {
 		User newUser = new User();
 		newUser.setId(id);
 		newUser.setUser(user);
 		newUser.setPassword(password);
+		newUser.setAdmin(admin);
 		return userRepositoryDAO.save(newUser);
 	}
 
 	@RequestMapping("/updateUser")
-	public User updateUser(@RequestParam long id, @RequestParam String user, @RequestParam String password) {
+	public User updateUser(@RequestParam long id, @RequestParam String user, @RequestParam String password,
+			@RequestParam boolean admin) {
 		User userUpdate = userRepositoryDAO.findById(id);
 		userUpdate.setUser(user);
 		userUpdate.setPassword(password);
+		userUpdate.setAdmin(admin);
 		return userRepositoryDAO.save(userUpdate);
 	}
 
