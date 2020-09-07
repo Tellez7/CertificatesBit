@@ -62,4 +62,15 @@ public class UserController {
 			return false;
 		}
 	}
+
+	@RequestMapping("/userExistsByData")
+	public User existsByData(@RequestParam String userEntry, @RequestParam String password) {
+		User userReturn = null;
+		for (User user : userRepositoryDAO.findAll()) {
+			if (user.getUser().equals(userEntry) && user.getPassword().equals(password)) {
+				userReturn = user;
+			}
+		}
+		return userReturn;
+	}
 }

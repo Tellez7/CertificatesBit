@@ -14,28 +14,28 @@ import javax.persistence.NamedQuery;
 @NamedQuery(name = "Student.findAll", query = "SELECT c FROM Student c")
 public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private String name;
-	
+
 	private String lastname;
 
 	private String cc;
-	
+
 	// CodigoBIT
 	private String bitCode;
-	
-	private String edad;
-	
+
+	private int age;
+
 	@ManyToOne
 	@JoinColumn(name = "idCurso")
 	private Course course;
-	
+
 	public Student() {
-		
+
 	}
 
 	public long getId() {
@@ -78,12 +78,12 @@ public class Student implements Serializable {
 		this.bitCode = bitCode;
 	}
 
-	public String getEdad() {
-		return edad;
+	public int getAge() {
+		return age;
 	}
 
-	public void setEdad(String edad) {
-		this.edad = edad;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public Course getCourse() {
@@ -93,5 +93,5 @@ public class Student implements Serializable {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	
+
 }

@@ -19,7 +19,7 @@ public class Course implements Serializable {
 
 	private String name;
 
-	private String durationHours;
+	private int durationHours;
 
 	public Course() {
 
@@ -41,11 +41,11 @@ public class Course implements Serializable {
 		this.name = name;
 	}
 
-	public String getDurationHours() {
+	public int getDurationHours() {
 		return durationHours;
 	}
 
-	public void setDurationHours(String durationHours) {
+	public void setDurationHours(int durationHours) {
 		this.durationHours = durationHours;
 	}
 

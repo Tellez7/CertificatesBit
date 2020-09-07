@@ -21,29 +21,27 @@ public class StudentController {
 
 	@RequestMapping("/createStudent")
 	public Student save(@RequestParam long id, @RequestParam String name, @RequestParam String lastname,
-			@RequestParam String cc, @RequestParam String bitCode, @RequestParam String edad,
-			@RequestParam Course course) {
+			@RequestParam String cc, @RequestParam String bitCode, @RequestParam int age, @RequestParam Course course) {
 		Student newStudent = new Student();
 		newStudent.setId(id);
 		newStudent.setName(name);
 		newStudent.setLastname(lastname);
 		newStudent.setCc(cc);
 		newStudent.setBitCode(bitCode);
-		newStudent.setEdad(edad);
+		newStudent.setAge(age);
 		newStudent.setCourse(course);
 		return studentRepositoryDAO.save(newStudent);
 	}
 
 	@RequestMapping("/updateStudent")
 	public Student updateStudent(@RequestParam long id, @RequestParam String name, @RequestParam String lastname,
-			@RequestParam String cc, @RequestParam String bitCode, @RequestParam String edad,
-			@RequestParam Course course) {
+			@RequestParam String cc, @RequestParam String bitCode, @RequestParam int age, @RequestParam Course course) {
 		Student studentUpdate = studentRepositoryDAO.findById(id);
 		studentUpdate.setName(name);
 		studentUpdate.setLastname(lastname);
 		studentUpdate.setCc(cc);
 		studentUpdate.setBitCode(bitCode);
-		studentUpdate.setEdad(edad);
+		studentUpdate.setAge(age);
 		studentUpdate.setCourse(course);
 		return studentRepositoryDAO.save(studentUpdate);
 	}
@@ -70,5 +68,16 @@ public class StudentController {
 		} else {
 			return false;
 		}
+	}
+
+	@RequestMapping("/studentExistsByData")
+	public Student existsByData(@RequestParam String cc, @RequestParam String bitCode) {
+		Student studentReturn = null;
+		for (Student student : studentRepositoryDAO.findAll()) {
+			if (student.getCc().equals(cc) && student.getBitCode().equals(bitCode)) {
+				studentReturn = student;
+			}
+		}
+		return studentReturn;
 	}
 }
