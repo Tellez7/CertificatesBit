@@ -14,6 +14,8 @@ import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import { StudentAddComponent } from './components/student-add/student-add.component';
 
+import { DatePipe } from '@angular/common';
+
 PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
@@ -31,7 +33,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MaterialModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

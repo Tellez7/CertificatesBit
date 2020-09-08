@@ -7,6 +7,8 @@ export const environment = {
   urlStudentExistsByData: 'http://localhost:8080/studentExistsByData',
   urlGetCourseById: 'http://localhost:8080/getCourseById',
   urlUserExistsByData: 'http://localhost:8080/userExistsByData',
+  urlGetAllCourses: 'http://localhost:8080/getAllCourses',
+  urlAddStudent: 'http://localhost:8080/createStudent'
 };
 
 /*

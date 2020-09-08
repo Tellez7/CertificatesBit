@@ -21,6 +21,8 @@ public class Course implements Serializable {
 
 	private int durationHours;
 
+	private String description;
+
 	public Course() {
 
 	}
@@ -47,6 +49,14 @@ public class Course implements Serializable {
 
 	public void setDurationHours(int durationHours) {
 		this.durationHours = durationHours;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

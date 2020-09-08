@@ -19,19 +19,23 @@ public class CourseController {
 	private CourseRepository courseRepositoryDAO;
 
 	@RequestMapping("/createCourse")
-	public Course save(@RequestParam long id, @RequestParam String name, @RequestParam int durationHours) {
+	public Course save(@RequestParam long id, @RequestParam String name, @RequestParam int durationHours,
+			@RequestParam String description) {
 		Course newCourse = new Course();
 		newCourse.setId(id);
 		newCourse.setName(name);
 		newCourse.setDurationHours(durationHours);
+		newCourse.setDescription(description);
 		return courseRepositoryDAO.save(newCourse);
 	}
 
 	@RequestMapping("/updateCourse")
-	public Course updateCourse(@RequestParam long id, @RequestParam String name, @RequestParam int durationHours) {
+	public Course updateCourse(@RequestParam long id, @RequestParam String name, @RequestParam int durationHours,
+			@RequestParam String description) {
 		Course courseUpdate = courseRepositoryDAO.findById(id);
 		courseUpdate.setName(name);
 		courseUpdate.setDurationHours(durationHours);
+		courseUpdate.setDescription(description);
 		return courseRepositoryDAO.save(courseUpdate);
 	}
 
