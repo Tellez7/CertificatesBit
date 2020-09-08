@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-content>
+    <form>
+      <h2>Crear Estudiante</h2>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Nombres" [(ngModel)]="name" name="name">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Apellidos" [(ngModel)]="lastName" name="lastName">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Cedula" [(ngModel)]="cc" name="cc">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Codigo BIT" [(ngModel)]="bitCode" name="bitCode">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Edad" [(ngModel)]="age" name="age">
+      </mat-form-field>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Curso</mat-label>
+          <mat-select [(ngModel)]="selectedCourse" name="course">
+            <mat-option *ngFor="let course of courses" [value]="course.id">
+              {{course.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary" (click)="addStudent()">Crear Estudiante</button>
+    </form>
+  </mat-card-content>
+</mat-card>
